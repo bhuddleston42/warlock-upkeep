@@ -93,6 +93,8 @@ ns.defaults = {
             font = "Fonts\\FRIZQT__.TTF", outline = "OUTLINE", size = 20,
         },
     }),
+    -- Nightfall: the icon shows while Shadow Trance is up; a click casts Shadow Bolt.
+    nightfall = Icon(45, 205),
     -- Summon queue window (Ritual of Summoning). Keywords: comma-separated, whole words; timeout in minutes.
     summon = {
         enabled = true, locked = false,
@@ -321,7 +323,7 @@ function ns:TogglePreviewCombat()
 end
 
 function ns:SetAllLocked(locked)
-    for _, key in ipairs({ "armor", "healthstone", "weaponStone", "soulstone", "pet", "healthFunnel", "soulstoneLabel", "shards", "summon", "summonSell", "enslave", "minimap" }) do
+    for _, key in ipairs({ "armor", "healthstone", "weaponStone", "soulstone", "pet", "healthFunnel", "nightfall", "soulstoneLabel", "shards", "summon", "summonSell", "enslave", "minimap" }) do
         self.db[key].locked = locked
     end
     self.db.healthFunnel.text.locked = locked

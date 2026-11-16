@@ -4,6 +4,15 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and the project uses [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+- **Nightfall proc icon**: while Shadow Trance from the Nightfall talent is up, a Shadow Bolt icon shows with a
+  highlight, also in combat, and a click casts the instant Shadow Bolt on your target. It hides once the proc is
+  spent or runs out (10 seconds). In combat, where WoW Forever and Retail hide auras from addons, it follows the
+  game's spell alert on Shadow Bolt, the buff frame and the Cooldown Manager (add Shadow Trance to its Tracked
+  Buffs), and an instant Shadow Bolt counts as the proc spent. Highlight and sound are on the new *Nightfall* page.
+
 ## [1.12.0] - 2026-11-13
 
 ### Changed
