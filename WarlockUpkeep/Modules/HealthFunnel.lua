@@ -184,10 +184,13 @@ local function IconVisible(b)
     return b:Cfg().enabled and not ns.HiddenForTravel() and not ns.IsDead()
 end
 
--- Hidden health in combat: the icon and the zone highlights show by curves (the state stays as it was).
+-- Hidden health: the icon and the zone highlights show by curves (the state stays as it was). The health can
+-- stay hidden for a moment after the fight too; the icon then keeps showing the same way instead of blinking off.
 function M:ShowZoneGlows(on)
     local b, cfg = self.button, Cfg()
-    on = on and InCombatLockdown() and b:IsShown() and not ns.db.combat.hide
+    local locked = InCombatLockdown()
+    on = on and not (locked and (not b:IsShown() or ns.db.combat.hide))
+    if on and IconVisible(b) and not locked then b:Show() end
     if on and IconVisible(b) and AlphaByCurve(b, nil, TopPercent(), ns.FrameAlpha()) then
         b.glow:SetGlow(false)
         for key, g in pairs(self.zoneGlows) do
@@ -199,7 +202,7 @@ function M:ShowZoneGlows(on)
         return
     end
     if on then
-        -- The game refused the curves: from now on the icon keeps the last readable state in combat.
+        -- The game refused the curves: from now on the icon keeps the last readable state.
         if IconVisible(b) then self.noCurves = true end
         b:SetAlpha(0)
     end

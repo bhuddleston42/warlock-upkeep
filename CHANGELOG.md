@@ -4,6 +4,13 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and the project uses [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Fixed
+- **Health Funnel after combat**: on WoW Forever and Retail the icon no longer disappears for a moment when a fight
+  ends while your demon's health is still low; it keeps following the health until the game shows it to addons
+  again.
+
 ## [1.12.0] - 2026-11-13
 
 ### Changed
