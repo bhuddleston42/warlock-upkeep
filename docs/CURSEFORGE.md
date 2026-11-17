@@ -25,6 +25,7 @@ Soulstone in Mists and Retail, Sayaad and Grimoire of Sacrifice in Retail.
 | **Soulstone** | Stone unused or missing | Applies or creates the stone |
 | **Demon** | No pet out | Summons the demon you assigned |
 | **Health Funnel** | Your demon's health is low | Heals your demon |
+| **Nightfall** | Nightfall procs (Shadow Trance) | Casts the instant Shadow Bolt |
 | **Grimoires** | At vendors and in tooltips | — |
 | **Summon queue** | Someone in the group asks for a summon | Targets them and casts Ritual of Summoning |
 

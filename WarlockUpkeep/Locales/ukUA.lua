@@ -41,6 +41,8 @@ ns.LOCALES.ukUA = {
     ["Low health. Click to use your Healthstone."] = "Мало здоров'я. Клік: використати Камінь здоров'я.",
     ["Health Funnel"] = "Канал здоров'я",
     ["Your demon's health is low. Click to cast Health Funnel."] = "У демона мало здоров'я. Клік: підлікувати його.",
+    ["Nightfall"] = "Сутінки",
+    ["Nightfall: your next Shadow Bolt is instant. Click to cast it."] = "Сутінки: наступна Тіньова стріла миттєва. Клік: випустити її.",
     ["Your demon's health is low: %d%%."] = "У демона мало здоров'я: %d%%.",
     ["Your demon's health is low!"] = "У демона мало здоров'я!",
     ["Your demon is about to die: %d%%."] = "Демон ось-ось загине: %d%%.",
@@ -250,8 +252,8 @@ ns.LOCALES.ukUA = {
     ["Important: add Demon Skin and Demon Armor to the Cooldown Manager's Tracked Buffs. " ..
         "In combat the game hides your buffs from addons, and the Cooldown Manager is what lets " ..
         "this icon notice the armor being removed or recast during a fight."] =
-        "Важливо: додайте Демонічну шкіру та Демонічну броню до відстежуваних бафів у Менеджері перезарядок. " ..
-        "У бою гра приховує ваші бафи від аддонів, і саме Менеджер перезарядок дає цій іконці " ..
+        "Важливо: додайте Демонічну шкіру та Демонічну броню до відстежуваних ефектів у Менеджері перезарядок. " ..
+        "У бою гра приховує ваші ефекти від аддонів, і саме Менеджер перезарядок дає цій іконці " ..
         "помітити, що броню знято або накладено знову під час бою.",
 
     -- Settings: shards
@@ -413,6 +415,17 @@ ns.LOCALES.ukUA = {
     -- Settings: demon
     ["Demon (pet)"] = "Демон",
     ["Demon for each click and modifier"] = "Який демон на клік і з модифікаторами",
+
+    -- Settings: Nightfall
+    ["Play sound when Nightfall procs"] = "Звук, коли спрацьовують Сутінки",
+    ["With the Nightfall talent, the icon shows while its proc (Shadow Trance) makes your next Shadow Bolt " ..
+        "instant; a click casts Shadow Bolt on your target."] =
+        "З талантом Сутінки іконка з'являється, поки його ефект (Тіньовий транс) робить наступну Тіньову стрілу " ..
+        "миттєвою; клік випускає Тіньову стрілу в ціль.",
+    ["Important: add Shadow Trance to the Cooldown Manager's Tracked Buffs. In combat the game hides " ..
+        "your buffs from addons, and the Cooldown Manager is what lets this icon notice the proc reliably."] =
+        "Важливо: додайте Тіньовий транс до відстежуваних ефектів Менеджера перезарядок. У бою гра приховує " ..
+        "ваші ефекти від аддонів, і саме Менеджер перезарядок дає цій іконці надійно помітити ефект.",
 
     -- Settings: Health Funnel
     ["Demon health: warning zone"] = "Здоров'я демона: зона попередження",

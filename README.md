@@ -108,6 +108,7 @@ ln -s "$PWD/WarlockUpkeep" "/Applications/World of Warcraft/_forever_/Interface/
 | 5 | **Soulstone** | Stone not applied or missing | Use or create the stone |
 | 6 | **Demon** | No pet out | Summons the assigned demon |
 | 6 | **Health Funnel** | Your demon's health is low | Casts Health Funnel on it |
+| 6 | **Nightfall** | Nightfall procs (Shadow Trance) | Casts the instant Shadow Bolt |
 | 7 | **Grimoires** | At vendors and in tooltips | — |
 | 8 | **Summon queue** | Someone in the group asks for a summon | Targets them and casts Ritual of Summoning |
 
@@ -260,6 +261,16 @@ default) or the critical one (5% or less, red), a Health Funnel icon shows with 
 combat, and a click heals the demon. Each zone has its own threshold, highlight and optional sound; the critical
 zone wins where they overlap. Until you learn Health Funnel, a movable warning in the zone's color shows on
 screen and in chat instead (each can be turned off).
+
+**Nightfall** (talent). While its proc, Shadow Trance, makes your next Shadow Bolt instant, a Shadow Bolt icon
+shows with a highlight, also in combat, and a click casts it on your target. The icon goes away once the proc is
+spent or runs out (10 seconds). It's offered once the talent is learned. Highlight and sound are on the
+*Nightfall* page. **WoW Forever: add Shadow Trance to the Cooldown Manager's Tracked Buffs** so the icon notices
+the proc reliably in combat.
+
+> **WoW Forever: add Shadow Trance to the Cooldown Manager's Tracked Buffs.** The proc comes in combat, where the
+> game hides your buffs from addons. The addon also follows the game's spell alert on Shadow Bolt and treats an
+> instant Shadow Bolt as the proc spent, but the Cooldown Manager is the reliable source.
 
 ### 7. Grimoires
 
@@ -550,6 +561,7 @@ WarlockUpkeep/
     ├── Soulstone.lua
     ├── Pet.lua
     ├── HealthFunnel.lua
+    ├── Nightfall.lua
     ├── Summon.lua
     ├── SummonSell.lua
     └── Grimoires.lua

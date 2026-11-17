@@ -365,7 +365,7 @@ end
 local pages, navButtons = {}, {}
 local currentPage
 local ORDER = { "general", "profiles", "armor", "shards", "reagents", "healthstone", "weaponStone", "soulstone", "pet",
-    "healthFunnel", "enslave", "summon", "sell", "trainer", "grimoires", "sounds" }
+    "healthFunnel", "nightfall", "enslave", "summon", "sell", "trainer", "grimoires", "sounds" }
 
 local function FinishPage()
     if content then content:SetHeight(-y + 20) end
@@ -866,6 +866,23 @@ function BuildContent()
             if ns.SECRET_AURAS then
                 Note("In combat the game may hide your demon's health from addons. The icon, its highlights and the " ..
                     "screen warning still follow it, but sounds and chat messages wait until the health can be read again.")
+            end
+        end)
+    end
+
+    -- 5a2. Nightfall
+    if ns.modules.nightfall then
+        -- Named as the client calls the talent.
+        local nfTitle = ns.SpellName(ns.data.nightfallTalent[1]) or "Nightfall"
+        local nfIcon = ns.SpellTexture(ns.data.nightfallBuffs[1]) or "Interface\\Icons\\Spell_Shadow_Twilight"
+        Page("nightfall", nfTitle, nfIcon)
+        IconSection(nfTitle, "nightfall", nfIcon, function(get)
+            GlowAndSound(get, nil, "Play sound when Nightfall procs")
+            Note("With the Nightfall talent, the icon shows while its proc (Shadow Trance) makes your next Shadow Bolt " ..
+                "instant; a click casts Shadow Bolt on your target.")
+            if ns.SECRET_AURAS then
+                Note("Important: add Shadow Trance to the Cooldown Manager's Tracked Buffs. In combat the game hides " ..
+                    "your buffs from addons, and the Cooldown Manager is what lets this icon notice the proc reliably.")
             end
         end)
     end

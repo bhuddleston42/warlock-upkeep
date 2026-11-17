@@ -38,6 +38,12 @@ ns.data = {
     enslaveDuration = select(4, GetBuildInfo()) >= 100000 and 600 or 300,
     -- Health Funnel: heals the demon (one rank from Mists on).
     healthFunnel = { 755, 3698, 3699, 3700, 11693, 11694, 11695, 27259 },
+    -- Nightfall talent proc: the next Shadow Bolt is instant. Shadow Trance (Classic Era, TBC, Forever) lasts
+    -- 10 seconds; 264571 is the Retail Nightfall buff.
+    shadowBolt = { 686, 695, 705, 1088, 1106, 7641, 11659, 11660, 11661, 25307, 27209 },
+    nightfallTalent = { 18094, 18095, 108558 }, -- ranks 1 and 2 (Classic Era, TBC, Forever), Retail
+    nightfallBuffs = { 17941, 264571 },
+    nightfallDuration = 10,
 
     -- The counter shows once Soul Shards can be gained.
     drainSoul = { 1120, 8288, 8289, 11675, 27217 },
