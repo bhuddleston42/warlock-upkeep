@@ -264,7 +264,9 @@ screen and in chat instead (each can be turned off).
 
 **Nightfall** (talent). While its proc, Shadow Trance, makes your next Shadow Bolt instant, a Shadow Bolt icon
 shows with a highlight, also in combat, and a click casts it on your target. The icon goes away once the proc is
-spent or runs out (10 seconds). Highlight and sound are on the *Nightfall* page.
+spent or runs out (10 seconds). It's offered once the talent is learned. Highlight and sound are on the
+*Nightfall* page. **WoW Forever: add Shadow Trance to the Cooldown Manager's Tracked Buffs** so the icon notices
+the proc reliably in combat.
 
 > **WoW Forever: add Shadow Trance to the Cooldown Manager's Tracked Buffs.** The proc comes in combat, where the
 > game hides your buffs from addons. The addon also follows the game's spell alert on Shadow Bolt and treats an

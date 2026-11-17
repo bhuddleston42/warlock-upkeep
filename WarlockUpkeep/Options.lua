@@ -872,9 +872,11 @@ function BuildContent()
 
     -- 5a2. Nightfall
     if ns.modules.nightfall then
+        -- Named as the client calls the talent.
+        local nfTitle = ns.SpellName(ns.data.nightfallTalent[1]) or "Nightfall"
         local nfIcon = ns.SpellTexture(ns.data.nightfallBuffs[1]) or "Interface\\Icons\\Spell_Shadow_Twilight"
-        Page("nightfall", "Nightfall", nfIcon)
-        IconSection("Nightfall", "nightfall", nfIcon, function(get)
+        Page("nightfall", nfTitle, nfIcon)
+        IconSection(nfTitle, "nightfall", nfIcon, function(get)
             GlowAndSound(get, nil, "Play sound when Nightfall procs")
             Note("With the Nightfall talent, the icon shows while its proc (Shadow Trance) makes your next Shadow Bolt " ..
                 "instant; a click casts Shadow Bolt on your target.")

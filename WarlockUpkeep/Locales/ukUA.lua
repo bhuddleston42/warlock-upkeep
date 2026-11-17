@@ -252,8 +252,8 @@ ns.LOCALES.ukUA = {
     ["Important: add Demon Skin and Demon Armor to the Cooldown Manager's Tracked Buffs. " ..
         "In combat the game hides your buffs from addons, and the Cooldown Manager is what lets " ..
         "this icon notice the armor being removed or recast during a fight."] =
-        "Важливо: додайте Демонічну шкіру та Демонічну броню до відстежуваних бафів у Менеджері перезарядок. " ..
-        "У бою гра приховує ваші бафи від аддонів, і саме Менеджер перезарядок дає цій іконці " ..
+        "Важливо: додайте Демонічну шкіру та Демонічну броню до відстежуваних ефектів у Менеджері перезарядок. " ..
+        "У бою гра приховує ваші ефекти від аддонів, і саме Менеджер перезарядок дає цій іконці " ..
         "помітити, що броню знято або накладено знову під час бою.",
 
     -- Settings: shards
@@ -424,8 +424,8 @@ ns.LOCALES.ukUA = {
         "миттєвою; клік випускає Тіньову стрілу в ціль.",
     ["Important: add Shadow Trance to the Cooldown Manager's Tracked Buffs. In combat the game hides " ..
         "your buffs from addons, and the Cooldown Manager is what lets this icon notice the proc reliably."] =
-        "Важливо: додайте Тіньовий транс до відстежуваних бафів Менеджера перезарядок. У бою гра приховує " ..
-        "ваші бафи від аддонів, і саме Менеджер перезарядок дає цій іконці надійно помітити ефект.",
+        "Важливо: додайте Тіньовий транс до відстежуваних ефектів Менеджера перезарядок. У бою гра приховує " ..
+        "ваші ефекти від аддонів, і саме Менеджер перезарядок дає цій іконці надійно помітити ефект.",
 
     -- Settings: Health Funnel
     ["Demon health: warning zone"] = "Здоров'я демона: зона попередження",

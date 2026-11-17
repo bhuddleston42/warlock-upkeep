@@ -85,18 +85,28 @@ end
 
 function M:ApplySettings() end
 
+-- A passive talent may not show as known on every client: a proc seen once counts as learned too.
+local function TalentKnown()
+    if ns.cdb.nightfallSeen then return true end
+    for _, id in ipairs(D.nightfallTalent) do
+        if ns.IsKnown(id) then return true end
+    end
+    return false
+end
+
 function M:Update()
     local b = self.button
     local spell = ns.HighestKnown(D.shadowBolt)
-    if not spell then
+    local proc = ReadProc()
+    if proc == nil then proc = self.lastProc end
+    self.lastProc = proc
+    if proc then ns.cdb.nightfallSeen = true end
+    if not spell or not TalentKnown() then
         b:SetUnlearned(ns.SpellTexture(D.shadowBolt[1]), D.shadowBolt[1])
         b:SetState(nil)
         return
     end
     -- The action is set also while hidden: in combat it can't change any more, only show up on the proc.
     b:SetSpell(spell)
-    local proc = ReadProc()
-    if proc == nil then proc = self.lastProc end
-    self.lastProc = proc
     b:SetState(proc and "proc" or nil)
 end

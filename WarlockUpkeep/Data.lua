@@ -41,6 +41,7 @@ ns.data = {
     -- Nightfall talent proc: the next Shadow Bolt is instant. Shadow Trance (Classic Era, TBC, Forever) lasts
     -- 10 seconds; 264571 is the Retail Nightfall buff.
     shadowBolt = { 686, 695, 705, 1088, 1106, 7641, 11659, 11660, 11661, 25307, 27209 },
+    nightfallTalent = { 18094, 18095, 108558 }, -- ranks 1 and 2 (Classic Era, TBC, Forever), Retail
     nightfallBuffs = { 17941, 264571 },
     nightfallDuration = 10,
 
