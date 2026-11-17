@@ -14,6 +14,11 @@ and the project uses [Semantic Versioning](https://semver.org/).
   Buffs), and an instant Shadow Bolt counts as the proc spent. The icon is offered once the talent is learned.
   Highlight and sound are on the new *Nightfall* page. Contributed by Jason Sirota.
 
+### Fixed
+- **Health Funnel after combat**: on WoW Forever and Retail the icon no longer disappears for a moment when a fight
+  ends while your demon's health is still low; it keeps following the health until the game shows it to addons
+  again.
+
 ## [1.12.0] - 2026-11-13
 
 ### Changed
