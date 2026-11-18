@@ -38,6 +38,7 @@ ns.defaults = {
     minimap = { hide = false, locked = false, angle = 215 },
     hideOnTaxi = false, -- hide all icons during a flight path
     hideOnMount = false, -- hide all icons while mounted
+    hideWhenResting = false, -- hide all icons while resting (in a city or inn), except in combat
     grimoires = { merchant = true, tooltip = true }, -- mark grimoires the demons already know
     customSounds = {}, -- { name = "alarm", path = "Interface\\WarlockUpkeepSounds\\alarm.ogg" }
     armor = Icon(-135, 160),
@@ -819,9 +820,17 @@ function ns.Mounted()
     return IsMounted and ns.Bool(IsMounted) or false
 end
 
+-- Resting (a city or an inn): hidden by "Hide all icons while resting", never in combat.
+ns:RegisterEvent("PLAYER_UPDATE_RESTING", function() ns:ScheduleUpdate() end)
+
+function ns.HiddenForResting()
+    return ns.db.hideWhenResting and not ns.inCombat and IsResting and ns.Bool(IsResting) or false
+end
+
 -- Everything (icons, Soulstone label, shard counter unless kept) is hidden on a flight path or a mount
--- by the options. A flight path follows its own option, also where it counts as being mounted.
+-- by the options, and while resting. A flight path follows its own option, also where it counts as being mounted.
 function ns.HiddenForTravel()
+    if ns.HiddenForResting() then return true end
     if ns.OnTaxi() then return ns.db.hideOnTaxi end
     return ns.db.hideOnMount and ns.Mounted()
 end
