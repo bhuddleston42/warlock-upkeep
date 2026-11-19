@@ -81,8 +81,8 @@ ns.defaults = {
             soulLink  = { glow = true, glowColor = { 0.7, 0.3, 1, 1 }, sound = false, soundName = "RAID_WARNING" },
         },
     }),
-    -- Demon on passive: off by default (passive is often on purpose, for crowd control); a click sets defensive.
-    petPassive = Icon(-45, 205, { enabled = false }),
+    -- Demon on passive: off by default (passive is often on purpose, for crowd control); a click sets `mode`.
+    petPassive = Icon(-45, 205, { enabled = false, mode = "PET_MODE_DEFENSIVE" }),
     -- Health Funnel: the icon shows when the demon's health is in a zone (percent or less); `crit` wins where
     -- they overlap. Without the spell, a warning on screen (`text`) and in chat instead.
     healthFunnel = Icon(0, 205, {
