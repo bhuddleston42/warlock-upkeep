@@ -83,6 +83,8 @@ ns.defaults = {
             soulLink  = { glow = true, glowColor = { 0.7, 0.3, 1, 1 }, sound = false, soundName = "RAID_WARNING" },
         },
     }),
+    -- Demon on passive: off by default (passive is often on purpose, for crowd control); a click sets defensive.
+    petPassive = Icon(-45, 205, { enabled = false }),
     -- Health Funnel: the icon shows when the demon's health is in a zone (percent or less); `crit` wins where
     -- they overlap. Without the spell, a warning on screen (`text`) and in chat instead.
     healthFunnel = Icon(0, 205, {
@@ -326,7 +328,7 @@ function ns:TogglePreviewCombat()
 end
 
 function ns:SetAllLocked(locked)
-    for _, key in ipairs({ "armor", "healthstone", "weaponStone", "soulstone", "pet", "healthFunnel", "nightfall", "soulstoneLabel", "shards", "summon", "summonSell", "enslave", "minimap" }) do
+    for _, key in ipairs({ "armor", "healthstone", "weaponStone", "soulstone", "pet", "petPassive", "healthFunnel", "nightfall", "soulstoneLabel", "shards", "summon", "summonSell", "enslave", "minimap" }) do
         self.db[key].locked = locked
     end
     self.db.healthFunnel.text.locked = locked

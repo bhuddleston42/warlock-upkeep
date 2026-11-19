@@ -6,6 +6,16 @@ and the project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+- **Demon on passive**: an optional icon (off by default, at the bottom of the *Demon (pet)* page) shows while your
+  demon is on passive, also in combat, and a click puts it on defensive.
+- **In combat, for each icon**: every icon's page has an *In combat* choice: *As set in General* (follows *Hide
+  icons in combat*, the default), *Show* or *Hide*. For example, keep the demon reminder in combat and hide the
+  Firestone / Spellstone icon.
+- **Click-through always**: icons, the Soulstone label, the shard counter and the other addon frames can ignore
+  the mouse out of combat too, so the icons are only reminders. Preview keeps them clickable, so they can still be
+  moved.
+
 ### Fixed
 - **Health Funnel clicks out of combat**: on WoW Forever the demon's health is hidden from addons also out of
   combat, and the icon took clicks while invisible, so a click on an empty spot cast Health Funnel. Now, out of
@@ -14,14 +24,6 @@ and the project uses [Semantic Versioning](https://semver.org/).
   so it can be placed on WoW Forever too.
 - **Firestone / Spellstone on WoW Forever**: a click on the icon puts the stone on your main-hand weapon right
   away, without picking the weapon in the character window.
-### Added
-- **Click-through always**: icons, the Soulstone label, the shard counter and the other addon frames can ignore
-  the mouse out of combat too, so the icons are only reminders. Preview keeps them clickable, so they can still be
-  moved.
-### Added
-- **In combat, for each icon**: every icon's page has an *In combat* choice: *As set in General* (follows *Hide
-  icons in combat*, the default), *Show* or *Hide*. For example, keep the demon reminder in combat and hide the
-  Firestone / Spellstone icon.
 
 ## [1.14.0] - 2026-11-19
 
