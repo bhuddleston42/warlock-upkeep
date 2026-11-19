@@ -474,13 +474,19 @@ function ns.MakeMovable(frame, getCfg, isIcon)
     frame:SetScript("OnDragStart", function(self)
         if getCfg().locked then return end
         if self:IsProtected() and InCombatLockdown() then return end
-        -- Placed by a hidden value (Health Funnel by the demon's health): the position can't be read to save it.
-        local left = self:GetLeft()
-        if left == nil or ns.IsSecret(left) then return end
         if self.isIcon then
             local check = modifierDown[ns.db.moveWith]
             if check and not check() then return end
         end
+        -- Placed by a hidden value (Health Funnel by the demon's health): back to its saved spot first, so the
+        -- position can be read and saved after the drag. Still hidden: it can't be moved now.
+        local left = self:GetLeft()
+        if (left == nil or ns.IsSecret(left)) and getCfg().point then
+            ns.ApplyPoint(self, getCfg().point)
+            self:SetClampedToScreen(true)
+            left = self:GetLeft()
+        end
+        if left == nil or ns.IsSecret(left) then return end
         self.moving = true
         self:StartMoving()
     end)
