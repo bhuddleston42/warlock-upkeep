@@ -193,7 +193,13 @@ ns.LOCALES.ukUA = {
     ["Combat"] = "Бій",
     ["Highlight in combat"] = "Підсвічувати в бою",
     ["Click-through in combat (target / turn the camera through icons)"] = "Кліки крізь іконки в бою (вибір цілі та поворот камери просто крізь них)",
-    ["Hide icons in combat"] = "Ховати іконки в бою",
+    ["Click-through always (icons are only reminders; preview keeps them clickable to move them)"] =
+        "Кліки крізь іконки завжди (іконки лише нагадують; у попередньому перегляді їх можна клікати й пересувати)",
+    ["Hide icons in combat (each icon can override it on its page)"] = "Ховати іконки в бою (кожна іконка може змінити це на своїй сторінці)",
+    ["In combat"] = "У бою",
+    ["As set in General"] = "Як у розділі \"Загальне\"",
+    ["Show"] = "Показувати",
+    ["Hide"] = "Ховати",
     ["Opacity in combat, %"] = "Непрозорість у бою, %",
     ["Opacity out of combat, %"] = "Непрозорість поза боєм, %",
     ["Click-through can't change during a fight (the game locks mouse input in combat): it applies after combat. " ..
@@ -418,6 +424,17 @@ ns.LOCALES.ukUA = {
 
     -- Settings: demon
     ["Demon (pet)"] = "Демон",
+    ["Demon on passive"] = "Демон у пасивному режимі",
+    ["Your demon is on passive. Click to set: %s."] = "Демон у пасивному режимі. Клік: %s.",
+    ["A click sets"] = "Клік вмикає режим",
+    ["Defensive"] = "Захисний",
+    ["Aggressive"] = "Агресивний",
+    ["Assist"] = "Допомога",
+    ["Shows while your demon is on passive, so it won't fight back or help. A click sets the mode chosen above. " ..
+        "Off by default: passive is often on purpose, to keep a crowd-controlled target asleep."] =
+        "Показується, поки демон у пасивному режимі й тому не відбивається і не допомагає. Клік вмикає режим, " ..
+        "обраний вище. За замовчуванням вимкнено: пасивний режим часто вмикають навмисно, щоб демон не будив " ..
+        "контрольовану ціль.",
     ["Demon for each click and modifier"] = "Який демон на клік і з модифікаторами",
 
     -- Settings: Nightfall

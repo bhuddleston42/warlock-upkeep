@@ -109,6 +109,7 @@ ln -s "$PWD/WarlockUpkeep" "/Applications/World of Warcraft/_forever_/Interface/
 | 6 | **Demon** | No pet out | Summons the assigned demon |
 | 6 | **Health Funnel** | Your demon's health is low | Casts Health Funnel on it |
 | 6 | **Nightfall** | Nightfall procs (Shadow Trance) | Casts the instant Shadow Bolt |
+| 6 | **Demon on passive** | Your demon is on passive (off by default) | Sets the chosen mode (Defensive by default) |
 | 7 | **Grimoires** | At vendors and in tooltips | — |
 | 8 | **Summon queue** | Someone in the group asks for a summon | Targets them and casts Ritual of Summoning |
 
@@ -177,7 +178,7 @@ dragging still moves the icon. Not in combat. The stone can also be picked in th
 
 In **Classic Era and TBC** the stone works while held in the off-hand, so "on" means equipped, and the click
 equips it in place of your off-hand item. On **WoW Forever** the stone imbues your main-hand weapon instead, so
-"on" means the weapon carries its imbue, and the click uses the stone. The imbue works together with a wizard
+"on" means the weapon carries its imbue, and the click puts the stone on your main-hand weapon right away. The imbue works together with a wizard
 oil, so an oil on the weapon doesn't stop the reminder. The game may show the imbue as a weapon enchant or as a
 buff on you; the addon learns which the first time you use the stone (from the icon, your bags or a macro).
 Without a main-hand weapon there's no reminder.
@@ -267,6 +268,11 @@ shows with a highlight, also in combat, and a click casts it on your target. The
 spent or runs out (10 seconds). It's offered once the talent is learned. Highlight and sound are on the
 *Nightfall* page. **WoW Forever: add Shadow Trance to the Cooldown Manager's Tracked Buffs** so the icon notices
 the proc reliably in combat.
+
+**Demon on passive** (off by default; turn it on at the bottom of the *Demon (pet)* page). While your demon is on
+passive it won't fight back or help, which is easy to forget after crowd control. The icon shows then, also in
+combat, and a click sets the mode you choose on that page: Defensive (the default), or Aggressive or Assist,
+whichever your client's pet bar has. It's off by default because passive is often on purpose.
 
 > **WoW Forever: add Shadow Trance to the Cooldown Manager's Tracked Buffs.** The proc comes in combat, where the
 > game hides your buffs from addons. The addon also follows the game's spell alert on Shadow Bolt and treats an
@@ -398,11 +404,12 @@ These General settings apply to the icons, the shard counter and the Soulstone l
 |--------|---------|-------------|
 | Out-of-combat opacity | 100% | Fully opaque |
 | In-combat opacity | 100% | Can't go below 20%, so nearly invisible icons don't steal clicks |
-| *Hide icons in combat* | off | Hides the icons for the whole fight. Turned on mid-fight, it applies at once |
+| *Hide icons in combat* | off | Hides the icons for the whole fight. Turned on mid-fight, it applies at once. Each icon can override it with *In combat* on its page: *As set in General*, *Show* or *Hide* |
 | *Hide all icons while on a flight path* | off | Hides everything from takeoff to landing |
 | *Hide all icons while mounted* | off | Hides everything while you're on a mount (a flight path follows the option above) |
 | *Hide all icons while resting* | off | Hides everything in a city or inn. Everything still shows in combat and in preview |
 | *Click-through in combat* | off | In combat all addon elements ignore the mouse, so you can click targets and turn the camera through them. With it off, icons are clickable in combat, also those that show up mid-fight |
+| *Click-through always* | off | The same out of combat too: the icons are only reminders. Preview keeps them clickable, so they can still be moved |
 
 The flight path and mount options hide the icons, the Soulstone label and the shard counter. The counter can
 stay: with its *Keep showing on a mount or flight path* option (on by default) it's then the only thing on screen.
@@ -509,7 +516,7 @@ The button can be dragged around the minimap, locked, or hidden in the settings.
 **Secure buttons in combat.** In combat, secure buttons can't be shown, hidden, moved or changed,
 and their mouse input can't be switched. The addon works around it with opacity:
 
-- icons appear and disappear in combat just like out of combat (only *Hide icons in combat* hides them all);
+- icons appear and disappear in combat just like out of combat (only *Hide icons in combat*, or an icon's own *In combat* option, hides them for the fight);
 - icons are clickable in combat, also those that appear mid-fight; *Click-through in combat* makes all of
   them let clicks through instead. Since mouse input is fixed for the whole fight, a faded-out icon still
   takes clicks at its spot unless click-through is on;
@@ -563,6 +570,7 @@ WarlockUpkeep/
     ├── WeaponStone.lua
     ├── Soulstone.lua
     ├── Pet.lua
+    ├── PetPassive.lua
     ├── HealthFunnel.lua
     ├── Nightfall.lua
     ├── Summon.lua

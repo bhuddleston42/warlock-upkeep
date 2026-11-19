@@ -478,6 +478,15 @@ function ns.MakeMovable(frame, getCfg, isIcon)
             local check = modifierDown[ns.db.moveWith]
             if check and not check() then return end
         end
+        -- Placed by a hidden value (Health Funnel by the demon's health): back to its saved spot first, so the
+        -- position can be read and saved after the drag. Still hidden: it can't be moved now.
+        local left = self:GetLeft()
+        if (left == nil or ns.IsSecret(left)) and getCfg().point then
+            ns.ApplyPoint(self, getCfg().point)
+            self:SetClampedToScreen(true)
+            left = self:GetLeft()
+        end
+        if left == nil or ns.IsSecret(left) then return end
         self.moving = true
         self:StartMoving()
     end)
@@ -617,6 +626,14 @@ function Icon:ApplySecure()
     self.appliedAttrs = copy
 end
 
+-- Hidden for the fight: the icon's own choice, or "Hide icons in combat".
+function Icon:HideInCombat()
+    local mode = self:Cfg().combat
+    if mode == "hide" then return true end
+    if mode == "show" then return false end
+    return ns.db.combat.hide
+end
+
 function Icon:ShouldShow()
     local cfg = self:Cfg()
     if not cfg.enabled then return false end
@@ -624,7 +641,7 @@ function Icon:ShouldShow()
     -- Nothing to fix while dead (or a ghost); preview still shows the samples for positioning.
     if ns.IsDead() and not ns.db.preview then return false end
     -- Simulated combat with "hide icons in combat" (real combat hides them in PrepareForCombat).
-    if ns.db.previewCombat and not ns.inCombat and ns.db.combat.hide then return false end
+    if ns.db.previewCombat and not ns.inCombat and self:HideInCombat() then return false end
     if self.state then return true end
     return ns.db.preview and self.hasAction
 end
@@ -650,7 +667,7 @@ function Icon:Sync()
     if InCombatLockdown() then
         -- Protected frame: only alpha may change in combat, so the icon shows and hides
         -- by opacity, the same way as out of combat ("Hide icons in combat" too, if turned on now).
-        if self:IsShown() then self:SetAlpha(show and not ns.db.combat.hide and ns.FrameAlpha() or 0) end
+        if self:IsShown() then self:SetAlpha(show and not self:HideInCombat() and ns.FrameAlpha() or 0) end
         return
     end
     self:SetSize(cfg.size, cfg.size)
@@ -658,7 +675,7 @@ function Icon:Sync()
     ns.ApplyPoint(self, cfg.point)
     self:ApplySecure()
     self:EnableMouse(not ns.ClickThrough())
-    if ns.CombatLook() and cfg.enabled and self.hasAction and not ns.db.combat.hide then
+    if ns.CombatLook() and cfg.enabled and self.hasAction and not self:HideInCombat() then
         -- Simulated combat looks and behaves like a real fight: the icon stays in place, invisible
         -- while not needed (and still taking clicks unless click-through is on).
         self:SetAlpha(show and ns.FrameAlpha() or 0)
@@ -674,7 +691,7 @@ end
 function Icon:PrepareForCombat()
     if not self:Cfg().enabled or not self.hasAction then return end
     self:ApplySecure()
-    if ns.db.combat.hide then
+    if self:HideInCombat() then
         self:Hide()
         return
     end

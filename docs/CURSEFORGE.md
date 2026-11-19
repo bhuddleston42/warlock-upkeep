@@ -26,6 +26,7 @@ Soulstone in Mists and Retail, Sayaad and Grimoire of Sacrifice in Retail.
 | **Demon** | No pet out | Summons the demon you assigned |
 | **Health Funnel** | Your demon's health is low | Heals your demon |
 | **Nightfall** | Nightfall procs (Shadow Trance) | Casts the instant Shadow Bolt |
+| **Demon on passive** | Your demon is on passive (off by default) | Sets the mode you choose |
 | **Grimoires** | At vendors and in tooltips | — |
 | **Summon queue** | Someone in the group asks for a summon | Targets them and casts Ritual of Summoning |
 
@@ -67,7 +68,7 @@ is ready in your bags: click to use it, in combat too.
 Forever, Classic Era and TBC. Pick your stone with a **right click** on the icon (a menu like the Retail demon
 flyout) or in the settings (Firestone by default); the icon shows once you can create it. Yellow when the stone is in your
 bags but not on, red when there's none. In Classic Era and TBC the click equips the stone in your off-hand; on
-WoW Forever it imbues your main-hand weapon, on top of a wizard oil if there's one.
+WoW Forever it imbues your main-hand weapon straight away, on top of a wizard oil if there's one.
 
 ### Soulstone
 
@@ -97,6 +98,8 @@ long your enslaved demon stays under control.
 
 When your demon's health gets low (20% and 5% by default, each with its own highlight and sound), a Health
 Funnel icon shows to heal it, also in combat. Before you learn the spell, a warning shows on screen and in chat.
+
+Optionally, an icon reminds you when your demon is on passive, and a click sets the mode you choose.
 
 ### Grimoires
 
@@ -145,11 +148,12 @@ which new ranks you can learn and what they cost (`/wu trainer` any time). Forev
 ## Built for combat
 
 - Separate **in-combat and out-of-combat opacity**.
-- **Hide icons in combat** if you only want reminders between fights.
+- **Hide icons in combat** if you only want reminders between fights, or choose it for each icon: keep the demon
+  reminder in combat and hide the stone, for example.
 - **Hide everything while on a flight path** or **while mounted**, optionally keeping just the shard counter (on clients that have one).
 - **Hide everything while resting** in a city or inn. It all comes back in combat, and the summon windows stay.
 - **Click-through in combat**: in combat the icons ignore the mouse, so you can click targets and turn the
-  camera right through them.
+  camera right through them. Or **always**, if you want the icons only as reminders.
 - **Combat simulation**: preview out of combat how everything will look and behave once a fight starts.
 - Icons appear and disappear in combat just like out of combat, even while WoW hides auras: the addon
   follows your buffs through the fight. Icons stay clickable in combat unless you turn on click-through.

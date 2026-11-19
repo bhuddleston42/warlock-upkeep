@@ -46,21 +46,23 @@ local function Calibrate(pct)
     if ok and type(v) == "number" and not ns.IsSecret(v) then scale = v > 1.5 and 100 or 1 end
 end
 
--- A step curve: `value` for health in (from, upTo] percent (from 0 without `from`), 0 elsewhere.
+-- A step curve: `value` for health in (from, upTo] percent (from 0 without `from`), `outside` (0 by default)
+-- elsewhere.
 local curves = {}
-local function StepCurve(from, upTo, value)
-    local key = table.concat({ scale, from or -1, upTo, value }, ":")
+local function StepCurve(from, upTo, value, outside)
+    outside = outside or 0
+    local key = table.concat({ scale, from or -1, upTo, value, outside }, ":")
     if curves[key] == nil then
         local ok, c = pcall(function()
             local c = C_CurveUtil.CreateCurve()
             c:SetType(Enum.LuaCurveType.Step)
             if from then
-                c:AddPoint(0, 0)
+                c:AddPoint(0, outside)
                 c:AddPoint((from + 0.01) / 100 * scale, value)
             else
                 c:AddPoint(0, value)
             end
-            c:AddPoint((upTo + 0.01) / 100 * scale, 0)
+            c:AddPoint((upTo + 0.01) / 100 * scale, outside)
             return c
         end)
         curves[key] = ok and c or false
@@ -85,6 +87,26 @@ local function TopPercent()
         if s[key].enabled then top = math.max(top or 0, s[key].percent) end
     end
     return top
+end
+
+-- Out of combat the hidden health also places the icon: in its spot within the zones, far off screen above
+-- them, so the invisible icon can't be clicked (the game takes hidden values for the position, not for mouse
+-- input or the clickable area). False when the game refuses.
+local OFF_SCREEN = 100000
+local function PlaceByCurve(b)
+    if b.moving then return true end
+    local p, top = b:Cfg().point, TopPercent()
+    local y = p[4] + OFF_SCREEN
+    if top then
+        local curve = StepCurve(nil, top, p[4], y)
+        local ok, v = false, nil
+        if curve then ok, v = pcall(UnitHealthPercent, "pet", false, curve) end
+        if not ok or v == nil then return false end
+        y = v
+    end
+    b:SetClampedToScreen(false)
+    b:ClearAllPoints()
+    return pcall(b.SetPoint, b, p[1], UIParent, p[2], p[3], y)
 end
 
 ------------------------------------------------------------------------
@@ -154,7 +176,8 @@ function M:Update()
     local spell = ns.HighestKnown(D.healthFunnel)
     local hp = PetHealth()
     local hidden = hp == nil
-    local byCurve = hidden and CURVES and not self.noCurves and cfg.enabled
+    -- Preview out of combat shows the icon in its spot for positioning, not by the hidden health.
+    local byCurve = hidden and CURVES and not self.noCurves and cfg.enabled and not (ns.db.preview and not ns.inCombat)
     local zone
     if hp then
         Calibrate(hp)
@@ -189,8 +212,15 @@ end
 function M:ShowZoneGlows(on)
     local b, cfg = self.button, Cfg()
     local locked = InCombatLockdown()
-    on = on and not (locked and (not b:IsShown() or ns.db.combat.hide))
-    if on and IconVisible(b) and not locked then b:Show() end
+    -- The icon is back in its spot here (Sync), so it can stay on screen again.
+    if not locked then b:SetClampedToScreen(true) end
+    on = on and not (locked and (not b:IsShown() or b:HideInCombat()))
+    if on and IconVisible(b) and not locked then
+        b:Show()
+        -- Out of combat: not clickable where it can't be seen. In combat (also right before the lockdown) the
+        -- position can't follow the health, so clicks follow the combat options.
+        if not ns.inCombat and not PlaceByCurve(b) then b:EnableMouse(false) end
+    end
     if on and IconVisible(b) and AlphaByCurve(b, nil, TopPercent(), ns.FrameAlpha()) then
         b.glow:SetGlow(false)
         for key, g in pairs(self.zoneGlows) do
