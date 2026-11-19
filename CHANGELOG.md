@@ -4,6 +4,13 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and the project uses [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+- **In combat, for each icon**: every icon's page has an *In combat* choice: *As set in General* (follows *Hide
+  icons in combat*, the default), *Show* or *Hide*. For example, keep the demon reminder in combat and hide the
+  Firestone / Spellstone icon.
+
 ## [1.14.0] - 2026-11-19
 
 ### Added

@@ -189,7 +189,7 @@ end
 function M:ShowZoneGlows(on)
     local b, cfg = self.button, Cfg()
     local locked = InCombatLockdown()
-    on = on and not (locked and (not b:IsShown() or ns.db.combat.hide))
+    on = on and not (locked and (not b:IsShown() or b:HideInCombat()))
     if on and IconVisible(b) and not locked then b:Show() end
     if on and IconVisible(b) and AlphaByCurve(b, nil, TopPercent(), ns.FrameAlpha()) then
         b.glow:SetGlow(false)

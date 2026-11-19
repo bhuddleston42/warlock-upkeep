@@ -145,7 +145,8 @@ which new ranks you can learn and what they cost (`/wu trainer` any time). Forev
 ## Built for combat
 
 - Separate **in-combat and out-of-combat opacity**.
-- **Hide icons in combat** if you only want reminders between fights.
+- **Hide icons in combat** if you only want reminders between fights, or choose it for each icon: keep the demon
+  reminder in combat and hide the stone, for example.
 - **Hide everything while on a flight path** or **while mounted**, optionally keeping just the shard counter (on clients that have one).
 - **Hide everything while resting** in a city or inn. It all comes back in combat, and the summon windows stay.
 - **Click-through in combat**: in combat the icons ignore the mouse, so you can click targets and turn the

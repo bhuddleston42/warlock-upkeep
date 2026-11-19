@@ -342,12 +342,19 @@ local function GlowAndSound(getTbl, glowText, soundText)
     SoundRows(getTbl, soundText)
 end
 
+local COMBAT_MODES = {
+    { value = "default", text = "As set in General" },
+    { value = "show", text = "Show" },
+    { value = "hide", text = "Hide" },
+}
+
 local function IconSection(title, key, icon, extra)
     local get = T(key)
     Header(title, icon)
     Check("Enable", function() return get().enabled end, function(v) get().enabled = v end)
     Check("Lock position", function() return get().locked end, function(v) get().locked = v end)
     Slider("Icon size", 16, 128, 1, function() return get().size end, function(v) get().size = v end)
+    Select("In combat", COMBAT_MODES, function() return get().combat or "default" end, function(v) get().combat = v end)
     if extra then extra(get) else GlowAndSound(get) end
 end
 
@@ -550,7 +557,7 @@ function BuildContent()
     SubHeader("Combat")
     Check("Highlight in combat", function() return ns.db.combat.glow end, function(v) ns.db.combat.glow = v end)
     Check("Click-through in combat (target / turn the camera through icons)", function() return ns.db.combat.clickThrough end, function(v) ns.db.combat.clickThrough = v end)
-    Check("Hide icons in combat", function() return ns.db.combat.hide end, function(v) ns.db.combat.hide = v end)
+    Check("Hide icons in combat (each icon can override it on its page)", function() return ns.db.combat.hide end, function(v) ns.db.combat.hide = v end)
     Slider("Opacity in combat, %", ns.MIN_COMBAT_ALPHA * 100, 100, 5, function() return math.floor(ns.db.combat.alpha * 100 + 0.5) end, function(v) ns.db.combat.alpha = v / 100 end)
     Slider("Opacity out of combat, %", 0, 100, 5, function() return math.floor(ns.db.combat.idleAlpha * 100 + 0.5) end, function(v) ns.db.combat.idleAlpha = v / 100 end)
     Note("Click-through can't change during a fight (the game locks mouse input in combat): it applies after combat. " ..

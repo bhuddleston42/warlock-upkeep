@@ -398,7 +398,7 @@ These General settings apply to the icons, the shard counter and the Soulstone l
 |--------|---------|-------------|
 | Out-of-combat opacity | 100% | Fully opaque |
 | In-combat opacity | 100% | Can't go below 20%, so nearly invisible icons don't steal clicks |
-| *Hide icons in combat* | off | Hides the icons for the whole fight. Turned on mid-fight, it applies at once |
+| *Hide icons in combat* | off | Hides the icons for the whole fight. Turned on mid-fight, it applies at once. Each icon can override it with *In combat* on its page: *As set in General*, *Show* or *Hide* |
 | *Hide all icons while on a flight path* | off | Hides everything from takeoff to landing |
 | *Hide all icons while mounted* | off | Hides everything while you're on a mount (a flight path follows the option above) |
 | *Hide all icons while resting* | off | Hides everything in a city or inn. Everything still shows in combat and in preview |
@@ -509,7 +509,7 @@ The button can be dragged around the minimap, locked, or hidden in the settings.
 **Secure buttons in combat.** In combat, secure buttons can't be shown, hidden, moved or changed,
 and their mouse input can't be switched. The addon works around it with opacity:
 
-- icons appear and disappear in combat just like out of combat (only *Hide icons in combat* hides them all);
+- icons appear and disappear in combat just like out of combat (only *Hide icons in combat*, or an icon's own *In combat* option, hides them for the fight);
 - icons are clickable in combat, also those that appear mid-fight; *Click-through in combat* makes all of
   them let clicks through instead. Since mouse input is fixed for the whole fight, a faded-out icon still
   takes clicks at its spot unless click-through is on;

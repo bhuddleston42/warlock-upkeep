@@ -16,6 +16,7 @@ function ns.Print(...) print(L_PREFIX .. string.format(...)) end
 local function Icon(x, y, extra)
     local t = {
         enabled = true, locked = false, size = 40,
+        combat = "default", -- in combat: "default" follows "Hide icons in combat", or "show" / "hide"
         point = { "CENTER", "CENTER", x, y },
         glow = true, glowColor = { 1, 0.82, 0, 1 },
         sound = false, soundName = "RAID_WARNING",
