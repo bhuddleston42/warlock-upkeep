@@ -820,19 +820,26 @@ function ns.Mounted()
     return IsMounted and ns.Bool(IsMounted) or false
 end
 
--- Resting (a city or an inn): hidden by "Hide all icons while resting", never in combat.
+-- Resting (a city or an inn): hidden by "Hide all icons while resting". Never in combat (real or simulated)
+-- and never in preview, so the icons can still be placed while standing in a city.
 ns:RegisterEvent("PLAYER_UPDATE_RESTING", function() ns:ScheduleUpdate() end)
 
 function ns.HiddenForResting()
-    return ns.db.hideWhenResting and not ns.inCombat and IsResting and ns.Bool(IsResting) or false
+    if not ns.db.hideWhenResting or ns.inCombat or ns.db.preview or ns.db.previewCombat then return false end
+    return IsResting and ns.Bool(IsResting) or false
 end
 
 -- Everything (icons, Soulstone label, shard counter unless kept) is hidden on a flight path or a mount
--- by the options, and while resting. A flight path follows its own option, also where it counts as being mounted.
+-- by the options. A flight path follows its own option, also where it counts as being mounted.
 function ns.HiddenForTravel()
-    if ns.HiddenForResting() then return true end
     if ns.OnTaxi() then return ns.db.hideOnTaxi end
     return ns.db.hideOnMount and ns.Mounted()
+end
+
+-- Icons, the Soulstone label, the Enslave timer and the Health Funnel warning hide on travel and while resting.
+-- The summon windows follow travel only: summons are sold in cities, and the queue shows only when someone's in it.
+function ns.HiddenByOptions()
+    return ns.HiddenForResting() or ns.HiddenForTravel()
 end
 
 -- Dying, releasing the spirit and coming back to life.

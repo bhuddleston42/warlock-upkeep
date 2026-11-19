@@ -175,7 +175,7 @@ function M:Update()
         self.low = nil
         return
     end
-    -- Hidden with the icons on a flight path or a mount, unless kept on screen; resting always hides it.
+    -- Hidden with the icons on a flight path or a mount, unless kept on screen; resting hides it anyway.
     if ns.HiddenForResting() or (ns.HiddenForTravel() and not cfg.keepOnTravel) then
         f:Hide()
         return
