@@ -177,10 +177,14 @@ ns.LOCALES.ukUA = {
     ["Move icons with"] = "Чим пересувати іконки",
     ["Hide all icons while on a flight path"] = "Ховати всі іконки під час польоту",
     ["Hide all icons while mounted"] = "Ховати всі іконки, поки ви на маунті",
-    ["These also hide the Soulstone label and the Soul Shard counter. The counter can stay on screen: " ..
-        "see \"Keep showing on a mount or flight path\" in its section."] =
-        "Ці опції ховають також мітку Каменя душі та лічильник уламків душ. Лічильник можна лишити на екрані: " ..
-        "опція \"Показувати на маунті й під час польоту\" в його розділі.",
+    ["Hide all icons while resting (in a city or inn, not in combat)"] = "Ховати всі іконки під час відпочинку (у місті чи таверні, крім бою)",
+    ["These also hide the Soulstone label and the Soul Shard counter. The counter can stay on screen " ..
+        "on a mount or flight path: see \"Keep showing on a mount or flight path\" in its section."] =
+        "Ці опції ховають також мітку Каменя душі та лічильник уламків душ. На маунті й під час польоту лічильник " ..
+        "можна лишити на екрані: опція \"Показувати на маунті й під час польоту\" в його розділі.",
+    ["While resting, everything shows in combat and in preview. The summon windows stay: summons are sold in cities."] =
+        "Під час відпочинку все видно в бою та в попередньому перегляді. Вікна призиву лишаються: " ..
+        "призиви продають у містах.",
     ["These also hide the Soulstone label."] = "Ці опції ховають також мітку Каменя душі.",
     ["Keep showing on a mount or flight path"] = "Показувати на маунті й під час польоту",
     ["Snap frames to each other (top / bottom / center, side by side)"] = "Прилипання рамок одна до одної (верх / низ / центр, поруч)",
