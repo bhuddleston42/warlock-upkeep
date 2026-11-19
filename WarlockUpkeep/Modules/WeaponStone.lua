@@ -230,7 +230,8 @@ function M:Update()
     self.lastItem = item
 
     if item then
-        local macro = string.format(IMBUE and "/use item:%d" or "/equip item:%d", item)
+        -- Forever: the stone goes straight onto the main-hand weapon, no picking it in the character window.
+        local macro = IMBUE and string.format("/use item:%d\n/use %d", item, MAIN_HAND) or string.format("/equip item:%d", item)
         b:SetAction({ type1 = "macro", macrotext1 = macro }, ns.ItemIcon(item), nil, item)
         b:SetState(not applied and not noWeapon and "use" or nil)
         return

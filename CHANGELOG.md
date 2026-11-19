@@ -4,6 +4,12 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and the project uses [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Fixed
+- **Firestone / Spellstone on WoW Forever**: a click on the icon puts the stone on your main-hand weapon right
+  away, without picking the weapon in the character window.
+
 ## [1.14.0] - 2026-11-19
 
 ### Added

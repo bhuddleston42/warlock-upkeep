@@ -67,7 +67,7 @@ is ready in your bags: click to use it, in combat too.
 Forever, Classic Era and TBC. Pick your stone with a **right click** on the icon (a menu like the Retail demon
 flyout) or in the settings (Firestone by default); the icon shows once you can create it. Yellow when the stone is in your
 bags but not on, red when there's none. In Classic Era and TBC the click equips the stone in your off-hand; on
-WoW Forever it imbues your main-hand weapon, on top of a wizard oil if there's one.
+WoW Forever it imbues your main-hand weapon straight away, on top of a wizard oil if there's one.
 
 ### Soulstone
 
