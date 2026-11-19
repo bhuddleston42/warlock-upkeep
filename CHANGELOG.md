@@ -12,6 +12,8 @@ and the project uses [Semantic Versioning](https://semver.org/).
   combat, the hidden health also places the icon: in its spot while the demon's health is in a zone, off screen
   otherwise. In combat clicks still follow *Click-through in combat*. Preview now shows the icon in its spot,
   so it can be placed on WoW Forever too.
+- **Firestone / Spellstone on WoW Forever**: a click on the icon puts the stone on your main-hand weapon right
+  away, without picking the weapon in the character window.
 
 ## [1.14.0] - 2026-11-19
 
