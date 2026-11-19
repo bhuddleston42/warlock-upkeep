@@ -474,6 +474,9 @@ function ns.MakeMovable(frame, getCfg, isIcon)
     frame:SetScript("OnDragStart", function(self)
         if getCfg().locked then return end
         if self:IsProtected() and InCombatLockdown() then return end
+        -- Placed by a hidden value (Health Funnel by the demon's health): the position can't be read to save it.
+        local left = self:GetLeft()
+        if left == nil or ns.IsSecret(left) then return end
         if self.isIcon then
             local check = modifierDown[ns.db.moveWith]
             if check and not check() then return end
