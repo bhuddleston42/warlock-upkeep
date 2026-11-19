@@ -842,6 +842,11 @@ function BuildContent()
             end
         end
     end)
+    IconSection("Demon on passive", "petPassive", "Interface\\Icons\\Ability_Seal", function(get)
+        GlowAndSound(get)
+        Note("Shows while your demon is on passive, so it won't fight back or help. A click puts it on defensive. " ..
+            "Off by default: passive is often on purpose, to keep a crowd-controlled target asleep.")
+    end)
 
     -- 5a. Health Funnel
     if ns.modules.healthFunnel then

@@ -109,6 +109,7 @@ ln -s "$PWD/WarlockUpkeep" "/Applications/World of Warcraft/_forever_/Interface/
 | 6 | **Demon** | No pet out | Summons the assigned demon |
 | 6 | **Health Funnel** | Your demon's health is low | Casts Health Funnel on it |
 | 6 | **Nightfall** | Nightfall procs (Shadow Trance) | Casts the instant Shadow Bolt |
+| 6 | **Demon on passive** | Your demon is on passive (off by default) | Puts it on defensive |
 | 7 | **Grimoires** | At vendors and in tooltips | — |
 | 8 | **Summon queue** | Someone in the group asks for a summon | Targets them and casts Ritual of Summoning |
 
@@ -267,6 +268,10 @@ shows with a highlight, also in combat, and a click casts it on your target. The
 spent or runs out (10 seconds). It's offered once the talent is learned. Highlight and sound are on the
 *Nightfall* page. **WoW Forever: add Shadow Trance to the Cooldown Manager's Tracked Buffs** so the icon notices
 the proc reliably in combat.
+
+**Demon on passive** (off by default; turn it on at the bottom of the *Demon (pet)* page). While your demon is on
+passive it won't fight back or help, which is easy to forget after crowd control. The icon shows then, also in
+combat, and a click puts the demon on defensive. It's off by default because passive is often on purpose.
 
 > **WoW Forever: add Shadow Trance to the Cooldown Manager's Tracked Buffs.** The proc comes in combat, where the
 > game hides your buffs from addons. The addon also follows the game's spell alert on Shadow Bolt and treats an
@@ -563,6 +568,7 @@ WarlockUpkeep/
     ├── WeaponStone.lua
     ├── Soulstone.lua
     ├── Pet.lua
+    ├── PetPassive.lua
     ├── HealthFunnel.lua
     ├── Nightfall.lua
     ├── Summon.lua

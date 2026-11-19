@@ -418,6 +418,13 @@ ns.LOCALES.ukUA = {
 
     -- Settings: demon
     ["Demon (pet)"] = "Демон",
+    ["Demon on passive"] = "Демон у пасивному режимі",
+    ["Your demon is on passive. Click to put it on defensive."] = "Демон у пасивному режимі. Клік: перевести в захисний.",
+    ["Shows while your demon is on passive, so it won't fight back or help. A click puts it on defensive. " ..
+        "Off by default: passive is often on purpose, to keep a crowd-controlled target asleep."] =
+        "Показується, поки демон у пасивному режимі й тому не відбивається і не допомагає. Клік переводить його в " ..
+        "захисний режим. За замовчуванням вимкнено: пасивний режим часто вмикають навмисно, щоб демон не будив " ..
+        "контрольовану ціль.",
     ["Demon for each click and modifier"] = "Який демон на клік і з модифікаторами",
 
     -- Settings: Nightfall

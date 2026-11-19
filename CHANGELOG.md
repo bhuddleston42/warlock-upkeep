@@ -4,6 +4,12 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and the project uses [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+- **Demon on passive**: an optional icon (off by default, at the bottom of the *Demon (pet)* page) shows while your demon
+  is on passive, also in combat, and a click puts it on defensive.
+
 ## [1.14.0] - 2026-11-19
 
 ### Added
