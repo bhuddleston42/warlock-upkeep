@@ -536,12 +536,14 @@ function BuildContent()
     Select("Move icons with", ns.GetMoveModes, function() return ns.db.moveWith end, function(v) ns.db.moveWith = v end)
     Check("Hide all icons while on a flight path", function() return ns.db.hideOnTaxi end, function(v) ns.db.hideOnTaxi = v end)
     Check("Hide all icons while mounted", function() return ns.db.hideOnMount end, function(v) ns.db.hideOnMount = v end)
+    Check("Hide all icons while resting (in a city or inn, not in combat)", function() return ns.db.hideWhenResting end, function(v) ns.db.hideWhenResting = v end)
     if ns.modules.shards then
-        Note("These also hide the Soulstone label and the Soul Shard counter. The counter can stay on screen: " ..
-            "see \"Keep showing on a mount or flight path\" in its section.")
+        Note("These also hide the Soulstone label and the Soul Shard counter. The counter can stay on screen " ..
+            "on a mount or flight path: see \"Keep showing on a mount or flight path\" in its section.")
     else
         Note("These also hide the Soulstone label.")
     end
+    Note("While resting, everything shows in combat and in preview. The summon windows stay: summons are sold in cities.")
     Check("Snap frames to each other (top / bottom / center, side by side)", function() return ns.db.snap.enabled end, function(v) ns.db.snap.enabled = v end)
     Slider("Snap distance", 2, 30, 1, function() return ns.db.snap.distance end, function(v) ns.db.snap.distance = v end)
     Slider("Gap between snapped frames", 0, 20, 1, function() return ns.db.snap.gap end, function(v) ns.db.snap.gap = v end)

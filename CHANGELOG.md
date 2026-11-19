@@ -4,6 +4,15 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and the project uses [Semantic Versioning](https://semver.org/).
 
+## [1.14.0] - 2026-11-19
+
+### Added
+- **Hide while resting**: *Hide all icons while resting* hides every icon, the Soulstone label, the shard counter,
+  the Enslave Demon timer and the Health Funnel warning while you're in a city or inn, so they stay out of the way
+  between quests. They come back when you leave the resting area and show in combat even while resting. Preview
+  mode shows them too, so they can be placed in a city. The summon queue and the summon selling window stay on
+  screen, since summons are sold in cities. Contributed by Jason Sirota.
+
 ## [1.13.0] - 2026-11-17
 
 ### Added

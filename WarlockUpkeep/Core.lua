@@ -38,6 +38,7 @@ ns.defaults = {
     minimap = { hide = false, locked = false, angle = 215 },
     hideOnTaxi = false, -- hide all icons during a flight path
     hideOnMount = false, -- hide all icons while mounted
+    hideWhenResting = false, -- hide all icons while resting (in a city or inn), except in combat
     grimoires = { merchant = true, tooltip = true }, -- mark grimoires the demons already know
     customSounds = {}, -- { name = "alarm", path = "Interface\\WarlockUpkeepSounds\\alarm.ogg" }
     armor = Icon(-135, 160),
@@ -819,11 +820,26 @@ function ns.Mounted()
     return IsMounted and ns.Bool(IsMounted) or false
 end
 
+-- Resting (a city or an inn): hidden by "Hide all icons while resting". Never in combat (real or simulated)
+-- and never in preview, so the icons can still be placed while standing in a city.
+ns:RegisterEvent("PLAYER_UPDATE_RESTING", function() ns:ScheduleUpdate() end)
+
+function ns.HiddenForResting()
+    if not ns.db.hideWhenResting or ns.inCombat or ns.db.preview or ns.db.previewCombat then return false end
+    return IsResting and ns.Bool(IsResting) or false
+end
+
 -- Everything (icons, Soulstone label, shard counter unless kept) is hidden on a flight path or a mount
 -- by the options. A flight path follows its own option, also where it counts as being mounted.
 function ns.HiddenForTravel()
     if ns.OnTaxi() then return ns.db.hideOnTaxi end
     return ns.db.hideOnMount and ns.Mounted()
+end
+
+-- Icons, the Soulstone label, the Enslave timer and the Health Funnel warning hide on travel and while resting.
+-- The summon windows follow travel only: summons are sold in cities, and the queue shows only when someone's in it.
+function ns.HiddenByOptions()
+    return ns.HiddenForResting() or ns.HiddenForTravel()
 end
 
 -- Dying, releasing the spirit and coming back to life.

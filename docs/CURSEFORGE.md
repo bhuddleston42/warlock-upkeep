@@ -147,6 +147,7 @@ which new ranks you can learn and what they cost (`/wu trainer` any time). Forev
 - Separate **in-combat and out-of-combat opacity**.
 - **Hide icons in combat** if you only want reminders between fights.
 - **Hide everything while on a flight path** or **while mounted**, optionally keeping just the shard counter (on clients that have one).
+- **Hide everything while resting** in a city or inn. It all comes back in combat, and the summon windows stay.
 - **Click-through in combat**: in combat the icons ignore the mouse, so you can click targets and turn the
   camera right through them.
 - **Combat simulation**: preview out of combat how everything will look and behave once a fight starts.
