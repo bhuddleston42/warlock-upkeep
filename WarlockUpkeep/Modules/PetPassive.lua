@@ -6,15 +6,20 @@ local M = ns:NewModule("petPassive")
 
 local function Cfg() return ns.db.petPassive end
 
--- The modes a click can pick, as the pet bar calls them. Aggressive is Classic Era / TBC / Forever, Assist the
--- later clients; the pet bar tells which it has once a demon is out.
+-- The modes a click can pick. The pet bar names them differently by client: newer ones (also Forever) have
+-- PET_MODE_DEFENSIVEASSIST for Defensive and Assist instead of Aggressive. The bar tells which it has once a
+-- demon is out.
 local MODES = {
-    { value = "PET_MODE_DEFENSIVE", text = "Defensive" },
-    { value = "PET_MODE_AGGRESSIVE", text = "Aggressive" },
-    { value = "PET_MODE_ASSIST", text = "Assist" },
+    { value = "defensive", text = "Defensive" },
+    { value = "aggressive", text = "Aggressive" },
+    { value = "assist", text = "Assist" },
+}
+local MODE_OF = {
+    PET_MODE_DEFENSIVE = "defensive", PET_MODE_DEFENSIVEASSIST = "defensive",
+    PET_MODE_AGGRESSIVE = "aggressive", PET_MODE_ASSIST = "assist",
 }
 local TOC = select(4, GetBuildInfo())
-local DEFAULT_ON_BAR = { PET_MODE_DEFENSIVE = true, [TOC >= 50000 and "PET_MODE_ASSIST" or "PET_MODE_AGGRESSIVE"] = true }
+local DEFAULT_ON_BAR = { defensive = true, [TOC >= 50000 and "assist" or "aggressive"] = true }
 
 -- Pet bar slot of each mode, remembered per character: the bar can only be read with a demon out.
 local function Slots()
@@ -46,16 +51,14 @@ local function Passive()
         if not r[1] then return nil end
         local name = r[2]
         if ns.IsSecret(name) then return nil end
-        if type(name) == "string" and name:match("^PET_MODE_") then
-            slots[name] = i
-            if name == "PET_MODE_PASSIVE" then
-                -- name, texture, isToken (1 or true for the bar's own buttons), isActive; clients with a subtext
-                -- before the texture have the texture (a string) where isToken would be.
-                local active
-                if type(r[4]) == "string" then active = r[6] else active = r[5] end
-                if ns.IsSecret(active) then return nil end
-                passive = active and true or false
-            end
+        if type(name) == "string" and MODE_OF[name] then slots[MODE_OF[name]] = i end
+        if name == "PET_MODE_PASSIVE" then
+            -- name, texture, isToken (1 or true for the bar's own buttons), isActive; clients with a subtext
+            -- before the texture have the texture (a string) where isToken would be.
+            local active
+            if type(r[4]) == "string" then active = r[6] else active = r[5] end
+            if ns.IsSecret(active) then return nil end
+            passive = active and true or false
         end
     end
     if next(slots) then ns.cdb.petModeSlots = slots end
@@ -64,9 +67,9 @@ end
 
 -- The mode a click sets: the chosen one if this pet bar has it, Defensive otherwise.
 local function Target()
-    local slots, mode = Slots(), Cfg().mode or "PET_MODE_DEFENSIVE"
+    local slots, mode = Slots(), Cfg().mode or "defensive"
     if slots[mode] then return mode, slots[mode] end
-    return "PET_MODE_DEFENSIVE", slots.PET_MODE_DEFENSIVE
+    return "defensive", slots.defensive
 end
 
 local function ModeText(mode)

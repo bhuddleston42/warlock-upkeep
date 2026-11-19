@@ -8,8 +8,8 @@ and the project uses [Semantic Versioning](https://semver.org/).
 
 ### Added
 - **Demon on passive**: an optional icon (off by default, at the bottom of the *Demon (pet)* page) shows while your demon
-  is on passive, also in combat, and a click sets the mode chosen on that page: Defensive (the default),
-  Aggressive, or Assist on Mists and Retail.
+  is on passive, also in combat, and a click sets the mode chosen on that page: Defensive (the default), or
+  Aggressive or Assist, whichever your client's pet bar has.
 
 ## [1.14.0] - 2026-11-19
 

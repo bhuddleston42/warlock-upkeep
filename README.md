@@ -271,8 +271,8 @@ the proc reliably in combat.
 
 **Demon on passive** (off by default; turn it on at the bottom of the *Demon (pet)* page). While your demon is on
 passive it won't fight back or help, which is easy to forget after crowd control. The icon shows then, also in
-combat, and a click sets the mode you choose on that page: Defensive (the default) or Aggressive, or Assist on
-Mists and Retail. It's off by default because passive is often on purpose.
+combat, and a click sets the mode you choose on that page: Defensive (the default), or Aggressive or Assist,
+whichever your client's pet bar has. It's off by default because passive is often on purpose.
 
 > **WoW Forever: add Shadow Trance to the Cooldown Manager's Tracked Buffs.** The proc comes in combat, where the
 > game hides your buffs from addons. The addon also follows the game's spell alert on Shadow Bolt and treats an
