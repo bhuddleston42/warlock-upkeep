@@ -8,7 +8,8 @@ and the project uses [Semantic Versioning](https://semver.org/).
 
 ### Added
 - **Demon on passive**: an optional icon (off by default, at the bottom of the *Demon (pet)* page) shows while your
-  demon is on passive, also in combat, and a click puts it on defensive.
+  demon is on passive, also in combat, and a click sets the mode chosen on that page: Defensive (the default),
+  Aggressive, or Assist on Mists and Retail.
 - **In combat, for each icon**: every icon's page has an *In combat* choice: *As set in General* (follows *Hide
   icons in combat*, the default), *Show* or *Hide*. For example, keep the demon reminder in combat and hide the
   Firestone / Spellstone icon.

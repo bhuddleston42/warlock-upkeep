@@ -26,7 +26,7 @@ Soulstone in Mists and Retail, Sayaad and Grimoire of Sacrifice in Retail.
 | **Demon** | No pet out | Summons the demon you assigned |
 | **Health Funnel** | Your demon's health is low | Heals your demon |
 | **Nightfall** | Nightfall procs (Shadow Trance) | Casts the instant Shadow Bolt |
-| **Demon on passive** | Your demon is on passive (off by default) | Puts it on defensive |
+| **Demon on passive** | Your demon is on passive (off by default) | Sets the mode you choose |
 | **Grimoires** | At vendors and in tooltips | — |
 | **Summon queue** | Someone in the group asks for a summon | Targets them and casts Ritual of Summoning |
 
@@ -99,7 +99,7 @@ long your enslaved demon stays under control.
 When your demon's health gets low (20% and 5% by default, each with its own highlight and sound), a Health
 Funnel icon shows to heal it, also in combat. Before you learn the spell, a warning shows on screen and in chat.
 
-Optionally, an icon reminds you when your demon is on passive, and a click puts it on defensive.
+Optionally, an icon reminds you when your demon is on passive, and a click sets the mode you choose.
 
 ### Grimoires
 

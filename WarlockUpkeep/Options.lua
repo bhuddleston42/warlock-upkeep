@@ -851,8 +851,10 @@ function BuildContent()
         end
     end)
     IconSection("Demon on passive", "petPassive", "Interface\\Icons\\Ability_Seal", function(get)
+        Select("A click sets", function() return ns.modules.petPassive.ModeList() end,
+            function() return get().mode end, function(v) get().mode = v end)
         GlowAndSound(get)
-        Note("Shows while your demon is on passive, so it won't fight back or help. A click puts it on defensive. " ..
+        Note("Shows while your demon is on passive, so it won't fight back or help. A click sets the mode chosen above. " ..
             "Off by default: passive is often on purpose, to keep a crowd-controlled target asleep.")
     end)
 
