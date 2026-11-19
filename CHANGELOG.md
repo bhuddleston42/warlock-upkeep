@@ -4,6 +4,13 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and the project uses [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+- **Click-through always**: icons, the Soulstone label, the shard counter and the other addon frames can ignore
+  the mouse out of combat too, so the icons are only reminders. Preview keeps them clickable, so they can still be
+  moved.
+
 ## [1.14.0] - 2026-11-19
 
 ### Added
