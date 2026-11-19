@@ -17,8 +17,10 @@ local function Passive()
         local name = r[2]
         if ns.IsSecret(name) then return nil end
         if name == "PET_MODE_PASSIVE" then
-            -- name, texture, isToken, isActive; older clients have a subtext before the texture.
-            local active = type(r[4]) == "boolean" and r[5] or r[6]
+            -- name, texture, isToken (1 or true for the bar's own buttons), isActive; clients with a subtext
+            -- before the texture have the texture (a string) where isToken would be.
+            local active
+            if type(r[4]) == "string" then active = r[6] else active = r[5] end
             if ns.IsSecret(active) then return nil end
             return active and true or false
         end
