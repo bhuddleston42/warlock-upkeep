@@ -195,7 +195,11 @@ ns.LOCALES.ukUA = {
     ["Click-through in combat (target / turn the camera through icons)"] = "Кліки крізь іконки в бою (вибір цілі та поворот камери просто крізь них)",
     ["Click-through always (icons are only reminders; preview keeps them clickable to move them)"] =
         "Кліки крізь іконки завжди (іконки лише нагадують; у попередньому перегляді їх можна клікати й пересувати)",
-    ["Hide icons in combat"] = "Ховати іконки в бою",
+    ["Hide icons in combat (each icon can override it on its page)"] = "Ховати іконки в бою (кожна іконка може змінити це на своїй сторінці)",
+    ["In combat"] = "У бою",
+    ["As set in General"] = "Як у розділі \"Загальне\"",
+    ["Show"] = "Показувати",
+    ["Hide"] = "Ховати",
     ["Opacity in combat, %"] = "Непрозорість у бою, %",
     ["Opacity out of combat, %"] = "Непрозорість поза боєм, %",
     ["Click-through can't change during a fight (the game locks mouse input in combat): it applies after combat. " ..

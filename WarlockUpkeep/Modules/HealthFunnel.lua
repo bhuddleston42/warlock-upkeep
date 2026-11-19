@@ -214,7 +214,7 @@ function M:ShowZoneGlows(on)
     local locked = InCombatLockdown()
     -- The icon is back in its spot here (Sync), so it can stay on screen again.
     if not locked then b:SetClampedToScreen(true) end
-    on = on and not (locked and (not b:IsShown() or ns.db.combat.hide))
+    on = on and not (locked and (not b:IsShown() or b:HideInCombat()))
     if on and IconVisible(b) and not locked then
         b:Show()
         -- Out of combat: not clickable where it can't be seen. In combat (also right before the lockdown) the

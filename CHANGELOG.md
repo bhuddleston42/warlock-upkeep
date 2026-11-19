@@ -18,6 +18,10 @@ and the project uses [Semantic Versioning](https://semver.org/).
 - **Click-through always**: icons, the Soulstone label, the shard counter and the other addon frames can ignore
   the mouse out of combat too, so the icons are only reminders. Preview keeps them clickable, so they can still be
   moved.
+### Added
+- **In combat, for each icon**: every icon's page has an *In combat* choice: *As set in General* (follows *Hide
+  icons in combat*, the default), *Show* or *Hide*. For example, keep the demon reminder in combat and hide the
+  Firestone / Spellstone icon.
 
 ## [1.14.0] - 2026-11-19
 
