@@ -4,6 +4,15 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and the project uses [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Fixed
+- **Health Funnel clicks out of combat**: on WoW Forever the demon's health is hidden from addons also out of
+  combat, and the icon took clicks while invisible, so a click on an empty spot cast Health Funnel. Now, out of
+  combat, the hidden health also places the icon: in its spot while the demon's health is in a zone, off screen
+  otherwise. In combat clicks still follow *Click-through in combat*. Preview now shows the icon in its spot,
+  so it can be placed on WoW Forever too.
+
 ## [1.14.0] - 2026-11-19
 
 ### Added
