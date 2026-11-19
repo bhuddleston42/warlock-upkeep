@@ -48,6 +48,8 @@ function M:Update()
     if passive == nil then passive = self.lastPassive end -- unreadable: keep last known
     self.lastPassive = passive
     -- The action is set also while hidden: in combat it can't change any more, only show up.
-    b:SetAction({ type1 = "macro", macrotext1 = "/petdefensive" }, "Interface\\Icons\\Ability_Defend", nil, nil)
+    -- The passive mode's own picture, as on the pet bar: the icon shows what's wrong, the click fixes it.
+    local texture = PET_PASSIVE_TEXTURE or "Interface\\Icons\\Ability_Seal"
+    b:SetAction({ type1 = "macro", macrotext1 = "/petdefensive" }, texture, nil, nil)
     b:SetState(passive and "passive" or nil)
 end
