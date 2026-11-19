@@ -36,6 +36,7 @@ ns.defaults = {
     -- Opacity of all addon frames in / out of combat; click-through in combat.
     combat = { clickThrough = false, alpha = 1, idleAlpha = 1, glow = true, hide = false },
     minimap = { hide = false, locked = false, angle = 215 },
+    clickThroughAlways = false, -- icons and frames never take clicks, except in preview (to move them)
     hideOnTaxi = false, -- hide all icons during a flight path
     hideOnMount = false, -- hide all icons while mounted
     hideWhenResting = false, -- hide all icons while resting (in a city or inn), except in combat
@@ -881,7 +882,9 @@ function ns.FrameAlpha()
 end
 
 -- Whether addon frames should ignore the mouse right now.
+-- Always, out of preview (icons are moved by dragging, so preview keeps them clickable), or in combat.
 function ns.ClickThrough()
+    if ns.db.clickThroughAlways and not (ns.db.preview and not ns.inCombat) then return true end
     return ns.CombatLook() and ns.db.combat.clickThrough
 end
 

@@ -403,6 +403,7 @@ These General settings apply to the icons, the shard counter and the Soulstone l
 | *Hide all icons while mounted* | off | Hides everything while you're on a mount (a flight path follows the option above) |
 | *Hide all icons while resting* | off | Hides everything in a city or inn. Everything still shows in combat and in preview |
 | *Click-through in combat* | off | In combat all addon elements ignore the mouse, so you can click targets and turn the camera through them. With it off, icons are clickable in combat, also those that show up mid-fight |
+| *Click-through always* | off | The same out of combat too: the icons are only reminders. Preview keeps them clickable, so they can still be moved |
 
 The flight path and mount options hide the icons, the Soulstone label and the shard counter. The counter can
 stay: with its *Keep showing on a mount or flight path* option (on by default) it's then the only thing on screen.

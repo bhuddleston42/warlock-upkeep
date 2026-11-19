@@ -149,7 +149,7 @@ which new ranks you can learn and what they cost (`/wu trainer` any time). Forev
 - **Hide everything while on a flight path** or **while mounted**, optionally keeping just the shard counter (on clients that have one).
 - **Hide everything while resting** in a city or inn. It all comes back in combat, and the summon windows stay.
 - **Click-through in combat**: in combat the icons ignore the mouse, so you can click targets and turn the
-  camera right through them.
+  camera right through them. Or **always**, if you want the icons only as reminders.
 - **Combat simulation**: preview out of combat how everything will look and behave once a fight starts.
 - Icons appear and disappear in combat just like out of combat, even while WoW hides auras: the addon
   follows your buffs through the fight. Icons stay clickable in combat unless you turn on click-through.

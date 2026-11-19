@@ -14,6 +14,10 @@ and the project uses [Semantic Versioning](https://semver.org/).
   so it can be placed on WoW Forever too.
 - **Firestone / Spellstone on WoW Forever**: a click on the icon puts the stone on your main-hand weapon right
   away, without picking the weapon in the character window.
+### Added
+- **Click-through always**: icons, the Soulstone label, the shard counter and the other addon frames can ignore
+  the mouse out of combat too, so the icons are only reminders. Preview keeps them clickable, so they can still be
+  moved.
 
 ## [1.14.0] - 2026-11-19
 

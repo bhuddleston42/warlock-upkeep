@@ -193,6 +193,8 @@ ns.LOCALES.ukUA = {
     ["Combat"] = "Бій",
     ["Highlight in combat"] = "Підсвічувати в бою",
     ["Click-through in combat (target / turn the camera through icons)"] = "Кліки крізь іконки в бою (вибір цілі та поворот камери просто крізь них)",
+    ["Click-through always (icons are only reminders; preview keeps them clickable to move them)"] =
+        "Кліки крізь іконки завжди (іконки лише нагадують; у попередньому перегляді їх можна клікати й пересувати)",
     ["Hide icons in combat"] = "Ховати іконки в бою",
     ["Opacity in combat, %"] = "Непрозорість у бою, %",
     ["Opacity out of combat, %"] = "Непрозорість поза боєм, %",
